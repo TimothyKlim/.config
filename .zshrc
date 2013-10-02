@@ -25,7 +25,7 @@ alias capd="bundle exec cap production deploy"
 unsetopt nomatch
 unsetopt correctall
 
-source $HOME/Development/z/z.sh
+source `brew --prefix`/etc/profile.d/z.sh
 
 export SBT_OPTS="-Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256m -Dfile.encoding=UTF-8"
 
