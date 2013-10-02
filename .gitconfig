@@ -1,3 +1,5 @@
+[github]
+  user = "TimothyKlim"
 [alias]
 	a = add
 	s = status
@@ -35,14 +37,10 @@
 	email = klimtimothy@gmail.com
 [http]
 	sslverify = false
-[difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
-[diff]
-	tool = Kaleidoscope
 [core]
-	excludesfile = /Users/timothyklim/.gitignore_global
+	excludesfile = /Users/timothyklim/.gitignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -51,3 +49,7 @@
 	trustExitCode = true
 [color]
   ui = true
+[mergetool]
+	prompt = false
+[merge]
+	tool = opendiff
