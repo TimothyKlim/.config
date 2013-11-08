@@ -46,3 +46,5 @@ export AWS_IAM_HOME="/usr/local/opt/aws-iam-tools/jars"
 export AWS_CREDENTIAL_FILE=$HOME/.aws-credentials-master
 
 export HOMEBREW_GITHUB_API_TOKEN=`cat ~/.github_token`
+export RBENV_ROOT=/usr/local/var/rbenv
+
