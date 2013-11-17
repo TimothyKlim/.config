@@ -41,6 +41,7 @@
 	prompt = false
 [core]
 	excludesfile = /Users/timothyklim/.gitignore
+	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
