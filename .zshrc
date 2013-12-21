@@ -15,11 +15,12 @@ export PATH="$JAVA_HOME:$JAVA_HOME/bin:$RBENV_ROOT/bin:$RBENV_ROOT/shims:/usr/lo
 
 eval "$(rbenv init -)"
 
+eval "$(direnv hook zsh)"
+
 alias emacs="`brew --prefix emacs`/Emacs.app/Contents/MacOS/Emacs -nw "
 alias macs="open -a `brew --prefix emacs`/Emacs.app "
 
 alias be="bundle exec "
-alias capd="bundle exec cap production deploy"
 
 unsetopt nomatch
 unsetopt correctall
@@ -34,14 +35,12 @@ alias guake='git shortlog -s | cut -f1 | spark'
 
 export M2_HOME=`brew --prefix maven`/libexec
 
+export HIVE_HOME=/Applications/hive
 export KIJI_HOME=/Applications/kiji
-export KIJI_MR_HOME=$KIJI_HOME
-export BENTO_CLUSTER_HOME="${KIJI_HOME}/cluster"
-export HADOOP_HOME="${BENTO_CLUSTER_HOME}/lib/hadoop-2.0.0-mr1-cdh4.3.0"
-export HBASE_HOME="${BENTO_CLUSTER_HOME}/cluster/lib/hbase-0.94.6-cdh4.3.0"
-export HADOOP_CONF_DIR="${HADOOP_HOME}/conf"
-export HBASE_CONF_DIR="${HBASE_HOME}/conf"
-export PATH="${KIJI_HOME}/bin:${KIJI_HOME}/schema-shell/bin:$BENTO_CLUSTER_HOME/bin:$HADOOP_HOME/bin:$HBASE_HOME/bin:${PATH}"
+
+alias cloud-env="source $KIJI_HOME/bin/kiji-env.sh;source /Applications/spark/bin/spark-config.sh;source /Applications/dse/bin/dse-env.sh;export PATH=/Applications/spark:/Applications/spark/bin:/Applications/hive/bin:/Applications/opscenter/bin:/Applications/opscenter/agent/bin:$PATH"
+
+alias cloud-start="cloud-env;bento start;nohup sudo dse cassandra -t >> /dev/null 2>>/dev/null &;nohup sudo datastax-agent -f >>/dev/null 2>>/dev/null &;nohup opscenter -f >> /dev/null 2>>/dev/null"
 
 export AWS_IAM_HOME="/usr/local/opt/aws-iam-tools/jars"
 export AWS_CREDENTIAL_FILE=$HOME/.aws-credentials-master
